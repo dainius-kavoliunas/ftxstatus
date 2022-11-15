@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -8,21 +8,26 @@
     <link rel="stylesheet" href="main.css">
 
     <title>FTX withdrawals status</title>
+    <script src="//code.tidio.co/rrrfo7rrfang412wgcunyi4arqwtfqal.js" async></script>
+</head>
 <body>
+    <div id="overlay"></div>
     <div class="row">
         <div class="col-md-8 offset-md-2">
-            <h1 style="font-family:Futura PT Bold;margin-top: 100px;">FTX withrawals disabled</h1>
+            <h1 style="font-family:Futura PT Bold;">FTX withrawals <span style="color: #c51424;">disabled</span> </h1>
+            <h6>Last checked: <span id='date-time'></span></h6>
         </div>
     </div>
     <div class="row">
         <div class="col-md-4 offset-md-4 emailbox" id="emailbox">
-            <p style="margin-top: 50px;">Enter email to receive alert once withrawals are enabled</p>
+            <p style="margin-top: 20px;margin-bottom: 40px;">Enter email to get alerted once withrawals are enabled</p>
             <input id="emailInput" type="email" class="emailInput rounded-lg" placeholder="name@example.com" >
-            <div onclick="getNotifiedBtnClicked()" class="btn btn-primary subscribeBtn rounded-lg">Subscribe</div>
+            <div onclick="getNotifiedBtnClicked()" class="btn btn-primary subscribeBtn rounded-lg">Get alerted</div>
         </div>
         <div class="col-md-4 offset-md-4 spinnerbox" id="spinnerbox"><div class="loader"></div></div>
         <div class="col-md-4 offset-md-4 paypalbox" id="paypalbox">
-            <p>We will inform you in 24 hours after FTX withrawals are enabled. Want intant notification to email /email/? Get it for 8.99USD</p>
+            <div style="margin: auto auto;display: flex;justify-content: center;"><img style="width: 50px;margin-top: -10px;" src="alert.png"></div>
+            <p style="margin-bottom: 40px;">Due to the amount of subscribers, your alert might be delayed. <br> Get an instant alert by joining VIP list for 8.99$</p>
             <div id="smart-button-container">
                 <div style="text-align: center;">
                   <div id="paypal-button-container"></div>
@@ -37,6 +42,7 @@
     <script>
 
         function getNotifiedBtnClicked(){
+            document.getElementById("overlay").style.display = "block";
             $("#emailbox").hide();
             $("#spinnerbox").show();
             var email = document.getElementById('emailInput').value;
@@ -61,6 +67,14 @@
 
     </script>
 <script src="https://www.paypal.com/sdk/js?client-id=AaINvK3fuykzj8hhqtJwNonwFVGoDp6sKNINeINVEnq8ubpyzaDqXvqorUywYtlBYxii1SP8iBvYiLcA&enable-funding=venmo&currency=USD" data-sdk-integration-source="button-factory"></script>
+
+<script>
+  var options = { year: 'numeric', month: 'long', day: 'numeric', hour:"2-digit", minute:"2-digit" };
+  var today  = new Date();
+
+  document.getElementById('date-time').innerHTML=today.toLocaleDateString("en-US", options);
+  </script>
+
 <script>
 
   var myEmail = "dainius@gmail.com";
