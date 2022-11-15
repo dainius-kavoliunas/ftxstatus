@@ -17,10 +17,12 @@
     <div class="row">
         <div class="col-md-4 offset-md-4 emailbox" id="emailbox">
             <p style="margin-top: 50px;">Enter email to receive alert once withrawals are enabled</p>
-            <input id="emailInput" type="email" class="emailInput rounded-lg" placeholder="name@example.com">
+            <input id="emailInput" type="email" class="emailInput rounded-lg" placeholder="name@example.com" >
             <div onclick="getNotifiedBtnClicked()" class="btn btn-primary subscribeBtn rounded-lg">Subscribe</div>
         </div>
+        <div class="col-md-4 offset-md-4 spinnerbox" id="spinnerbox"><div class="loader"></div></div>
         <div class="col-md-4 offset-md-4 paypalbox" id="paypalbox">
+            <p>We will inform you in 24 hours after FTX withrawals are enabled. Want intant notification to email /email/? Get it for 8.99USD</p>
             <div id="smart-button-container">
                 <div style="text-align: center;">
                   <div id="paypal-button-container"></div>
@@ -35,6 +37,8 @@
     <script>
 
         function getNotifiedBtnClicked(){
+            $("#emailbox").hide();
+            $("#spinnerbox").show();
             var email = document.getElementById('emailInput').value;
 
             const Http = new XMLHttpRequest();
@@ -44,8 +48,12 @@
 
             Http.onreadystatechange = function() {
                 if(this.readyState==4){
-                    $("#emailbox").hide();
+
+                  setTimeout(()=>{
+                    $("#spinnerbox").hide();
                     $("#paypalbox").show();
+                  }, 1000);
+                   
                 }
             }
 
