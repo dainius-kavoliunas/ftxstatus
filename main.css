@@ -23,7 +23,7 @@
 
 h1 {
     font-family: Futura PT Light;
-    font-size: 70px;
+    font-size: 300%;
     letter-spacing: 0.05em;
     line-height: 1.65em;
     text-transform: none;
@@ -34,7 +34,7 @@ h1 {
 
 h6 {
   font-family: Milibus Light;
-  font-size: 20px;
+  font-size: 100%;
   letter-spacing: 0.05em;
   line-height: 1.65em;
   text-transform: none;
@@ -46,7 +46,7 @@ h6 {
 
 p {
   font-family: Milibus Light;
-  font-size: 30px;
+  font-size: 150%;
   letter-spacing: 0.05em;
   line-height: 1.65em;
   text-transform: none;
@@ -140,4 +140,9 @@ body {
   background-color: rgba(0,0,0,0.9); /* Black background with opacity */
   z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
   cursor: pointer; /* Add a pointer on hover */
+}
+
+.row{
+  margin-left: 0px;
+  margin-right: 0px;
 }

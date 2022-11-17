@@ -14,7 +14,7 @@
 <body>
     <div id="overlay"></div>
     <div class="row">
-        <div class="col-md-8 offset-md-2">
+        <div class="col-md-8 offset-md-2" style="padding-right:0px;">
             <h1 style="font-family:Futura PT Bold;">FTX withdrawals <span style="color: #c51424;">disabled</span> </h1>
             <h6>Last checked: <span id='date-time'></span></h6>
         </div>
@@ -29,7 +29,7 @@
         <div class="col-md-4 offset-md-4 paypalbox" id="paypalbox">
             <div style="margin: auto auto;display: flex;justify-content: center;"><img style="width: 50px;margin-top: -10px;" src="alert.png"></div>
             <p style="margin-bottom: 40px;margin-top: 10px;">Due to the amount of subscribers, your alert might be delayed</p>
-            <p style="margin-bottom: 40px;margin-top: 10px;"> Get an instant alert at <span id='email-paypal'></span> by joining VIP list for 8.99$</p>
+            <p style="margin-bottom: 40px;margin-top: 10px;"> Get a priority alert at <span id='email-paypal'></span> by joining a VIP list for 8.99$</p>
             <div id="smart-button-container">
                 <div style="text-align: center;">
                   <div id="paypal-button-container"></div>
@@ -97,7 +97,7 @@
 
       createOrder: function(data, actions) {
         return actions.order.create({
-          purchase_units: [{"amount":{"currency_code":"USD","value":3.99}}],
+          purchase_units: [{"amount":{"currency_code":"USD","value":8.99}}],
           application_context: {shipping_preference: "NO_SHIPPING"}
         });
       },
