@@ -59,6 +59,10 @@
     <script>
 
         function getNotifiedBtnClicked(){
+
+            gtag('event', 'getNotifiedBtnClicked', {
+            });
+
             email = document.getElementById('emailInput').value;
             document.getElementById("overlay").style.display = "block";
             document.getElementById('email-paypal').innerHTML=email;
@@ -106,6 +110,10 @@
       },
 
       createOrder: function(data, actions) {
+
+        gtag('event', 'payBtnClicked', {
+        });
+
         return actions.order.create({
           purchase_units: [{"amount":{"currency_code":"USD","value":8.99}}],
           application_context: {shipping_preference: "NO_SHIPPING"}
@@ -113,6 +121,10 @@
       },
 
       onApprove: function(data, actions) {
+
+        gtag('event', 'paymentDone', {
+        });
+
         return actions.order.capture().then(function(orderData) {
 
           document.getElementById('email-success').innerHTML=email;
