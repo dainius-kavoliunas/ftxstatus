@@ -122,16 +122,21 @@
 
       onApprove: function(data, actions) {
 
-        gtag('event', 'paymentDone', {
+        gtag("event", "purchase", {
+              transaction_id:  Math.floor(Date.now()),
+              value: 8.99,
+              tax: 0,
+              shipping: 0,
+              currency: "USD",
+              items: []
         });
 
+        document.getElementById('email-success').innerHTML=email;
+
+        $("#paypalbox").hide();
+        $("#successbox").show();
+
         return actions.order.capture().then(function(orderData) {
-
-          document.getElementById('email-success').innerHTML=email;
-
-          $("#paypalbox").hide();
-          $("#successbox").show();
-
         });
       },
 
